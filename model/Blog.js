@@ -15,9 +15,17 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: [true, "image is required"],
     },
+    content: {
+      type: String,
+      required: [true, "you need some content to make a blog"],
+    },
     author: {
       type: String,
       required: [true, "author is requied"],
+    },
+    date: {
+      type: String,
+      default: new Date().toDateString(),
     },
   },
   { timestamps: true }
