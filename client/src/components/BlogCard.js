@@ -1,8 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { zoomIn } from "react-animations";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addBlog } from "../redux/blogSlice";
@@ -61,9 +59,9 @@ const BlogCard = (props) => {
   return (
     <Container onClick={handleClick}>
       <Image src={props.Image} />
-      <Date>{props.Date || <Skeleton />}</Date>
-      <Title>{props.Title || <Skeleton />}</Title>
-      <Subtitle>{props.Subtitle || <Skeleton />}</Subtitle>
+      <Date>{props.Date}</Date>
+      <Title>{props.Title}</Title>
+      <Subtitle>{props.Subtitle}</Subtitle>
     </Container>
   );
 };
