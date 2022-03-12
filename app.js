@@ -8,6 +8,8 @@ const path = require("path");
 const authRoute = require("./routes/auth");
 const blogRoute = require("./routes/blog");
 
+app.use(cors({ origin: "*" }));
+
 try {
   mongoose.connect(process.env.MONGO_URL);
 
@@ -24,7 +26,6 @@ app.get("*", (req, res) => {
 
 // middlewares
 app.use(express.json());
-app.use(cors({ origin: "*" }));
 
 // routes
 app.use("/api/auth", authRoute);
