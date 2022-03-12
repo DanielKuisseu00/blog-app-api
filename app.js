@@ -8,7 +8,7 @@ const path = require("path");
 const authRoute = require("./routes/auth");
 const blogRoute = require("./routes/blog");
 
-app.use(cors({ origin: "*" }));
+app.use(cors());
 
 try {
   mongoose.connect(process.env.MONGO_URL);
