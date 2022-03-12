@@ -28,8 +28,8 @@ app.get("*", (req, res) => {
 app.use(express.json());
 
 // routes
-app.use("/api/auth", authRoute);
-app.use("/api/blogs", blogRoute);
+app.use("/api/auth", cors(), authRoute);
+app.use("/api/blogs", cors(), blogRoute);
 
 const PORT = process.env.PORT || 5000;
 
