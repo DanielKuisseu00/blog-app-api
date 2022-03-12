@@ -8,7 +8,7 @@ const path = require("path");
 const authRoute = require("./routes/auth");
 const blogRoute = require("./routes/blog");
 
-app.use(cors());
+app.use(cors({ origin: "https://new-blog-0011.herokuapp.com" }));
 
 try {
   mongoose.connect(process.env.MONGO_URL);
@@ -28,8 +28,8 @@ app.get("*", (req, res) => {
 app.use(express.json());
 
 // routes
-app.use("/api/auth", cors(), authRoute);
-app.use("/api/blogs", cors(), blogRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/blogs", blogRoute);
 
 const PORT = process.env.PORT || 5000;
 
