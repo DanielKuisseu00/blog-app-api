@@ -8,7 +8,7 @@ const path = require("path");
 const authRoute = require("./routes/auth");
 const blogRoute = require("./routes/blog");
 
-app.use(cors({ origin: "https://new-blog-0011.herokuapp.com" }));
+app.use(cors());
 
 try {
   mongoose.connect(process.env.MONGO_URL);
@@ -18,11 +18,11 @@ try {
   console.log(err);
 }
 
-app.use(express.static(path.join(__dirname, "/client/build")));
+// app.use(express.static(path.join(__dirname, "/client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
+// });
 
 // middlewares
 app.use(express.json());
