@@ -18,6 +18,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:blogId", async (req, res) => {
   const blogId = req.params.blogId;
+  console.log(blogId);
 
   try {
     const foundBlog = await Blog.findById(blogId);
@@ -29,7 +30,6 @@ router.get("/:blogId", async (req, res) => {
     res.json(err);
   }
 });
-
 
 const upload = multer({ dest: "./images" });
 
